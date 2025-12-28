@@ -1,12 +1,18 @@
-from config import Config
-from api import ApiClient
-from scheduler import Scheduler
-from net import get_hostname, get_ips
-from collectors.system import collect_os, collect_cpu, collect_ram
-from collectors.services import collect_running_services
-from collectors.docker import collect_containers, collect_images
-from collectors.web import collect_apache_vhosts, collect_nginx_servers
-from utils import run_cmd
+import os
+import sys
+
+# Add project root to path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from inventario_agent.config import Config
+from inventario_agent.api import ApiClient
+from inventario_agent.scheduler import Scheduler
+from inventario_agent.net import get_hostname, get_ips
+from inventario_agent.collectors.system import collect_os, collect_cpu, collect_ram
+from inventario_agent.collectors.services import collect_running_services
+from inventario_agent.collectors.docker import collect_containers, collect_images
+from inventario_agent.collectors.web import collect_apache_vhosts, collect_nginx_servers
+from inventario_agent.utils import run_cmd
 
 def collect_snapshot():
     snapshot = {

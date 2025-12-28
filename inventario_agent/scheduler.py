@@ -1,5 +1,4 @@
 import time
-from .config import Config
 
 class Scheduler:
     def __init__(self, interval_seconds: int):

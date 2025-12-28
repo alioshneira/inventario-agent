@@ -1,4 +1,4 @@
-from ..utils import run_cmd
+from inventario_agent.utils import run_cmd
 
 def collect_apache_vhosts():
     # Lee archivos habilitados (Debian/Ubuntu). Ajusta rutas según distro.

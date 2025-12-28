@@ -1,5 +1,4 @@
 import requests
-from .config import Config
 
 class ApiClient:
     def __init__(self, base_url: str, endpoint: str, token: str | None, verify_tls: bool = True):

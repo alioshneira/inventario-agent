@@ -1,4 +1,4 @@
-from .utils import run_cmd
+from utils import run_cmd
 
 def get_hostname():
     return run_cmd("hostname") or ""
