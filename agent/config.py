@@ -14,3 +14,6 @@ class Config:
     ENABLE_NGINX = str2bool(os.getenv("ENABLE_NGINX", "true"))
     TIMEOUT_CMD = int(os.getenv("TIMEOUT_CMD", "10"))
     VERIFY_TLS = str2bool(os.getenv("VERIFY_TLS", "true"))
+
+    def __init__(self):
+        pass
