@@ -1,0 +1,20 @@
+locales:
+  hosts:
+    webserver01:
+      ansible_host: 192.168.1.20
+      ansible_user: orangepi
+      ansible_password: orangepi
+      ansible_port: 22
+      http_port: 80
+remote:
+  hosts:
+    webserver02:
+      ansible_host: openvpn.ali.net.pe
+      ansible_user: rocky
+      ansible_port: 30350
+      http_port: 443
+      privilege_escalation:
+        enabled: yes
+        become_user: root
+  vars:
+    ansible_user: my_server_user

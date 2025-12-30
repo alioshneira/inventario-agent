@@ -1,0 +1,11 @@
+- name: Instalar software desde git
+  hosts: remote
+  tasks:
+  - name: Git checkout    
+    become: yes
+    become_user: proyectos
+
+    ansible.builtin.git:
+      repo: git@gitlab.com:aliosh2006/pmanager.git
+      dest: /home/proyectos/pmanager
+      version: v2.2
