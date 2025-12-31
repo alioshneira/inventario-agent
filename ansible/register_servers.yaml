@@ -1,0 +1,25 @@
+---
+- name: Register servers in inventory
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Send server data to API
+      ansible.builtin.uri:
+        url: http://localhost:8000/api/inventory
+        method: POST
+        body_format: json
+        body:
+          hostname: "{{ ansible_hostname }}"
+          ip_address: "{{ ansible_default_ipv4.address }}"
+          distribution: "{{ ansible_distribution }}"
+          distribution_version: "{{ ansible_distribution_version }}"
+          os_family: "{{ ansible_os_family }}"
+          cpu_cores: "{{ ansible_processor_cores }}"
+          memory_mb: "{{ ansible_memtotal_mb }}"
+        headers:
+          Content-Type: "application/json"
+          # Add any other headers like Authorization if needed
+          # Authorization: "Bearer YOUR_API_TOKEN"
+        status_code: [200, 201]
+      delegate_to: localhost
