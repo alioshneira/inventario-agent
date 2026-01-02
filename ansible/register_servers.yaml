@@ -1,6 +1,6 @@
 ---
 - name: Register servers in inventory
-  hosts: all
+  hosts: orangepi
   gather_facts: true
 
   tasks:
@@ -17,9 +17,11 @@
           os_family: "{{ ansible_os_family }}"
           cpu_cores: "{{ ansible_processor_cores }}"
           memory_mb: "{{ ansible_memtotal_mb }}"
+          devices: "{{ ansible_devices }}"
+          mounts: "{{ ansible_mounts }}"
         headers:
           Content-Type: "application/json"
           # Add any other headers like Authorization if needed
-          # Authorization: "Bearer YOUR_API_TOKEN"
+          Authorization: "Bearer d33b060b880252300919882e73261681b87f9286"
         status_code: [200, 201]
       delegate_to: localhost
